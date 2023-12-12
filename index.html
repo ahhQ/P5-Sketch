@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Waste Visualization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        #content {
+            margin-top: 50px;
+        }
+        #title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #introduction {
+            max-width: 600px;
+            margin: auto;
+            text-align: left;
+            margin-bottom: 20px;
+    }
+        #enterButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div id="title">Food Waste Across All Countries</div>
+        <div id="introduction">
+            <p>This interactive visualization presents a comprehensive overview of food waste across various countries. In an era where food security and environmental sustainability are of paramount importance, understanding and managing food waste is crucial. Our chart visualizes data on food waste from households, retail, and food services, offering insights into the scale and distribution of this global challenge.
+
+                Users can explore different dimensions of food waste through an interactive selection menu, choosing to view combined figures or specific estimates from households, retail, or food service sectors. The visualization employs a bar chart format, where each bar represents a country and its corresponding food waste figures in kilograms per capita per year.
+                
+                The background features a world map, contextualizing the data within a global framework. As users hover over each bar, detailed information about the country's food waste statistics is displayed, providing a deeper understanding of the data.
+                
+                This tool aims to raise awareness about the magnitude of food waste worldwide and encourage informed discussions on strategies for reduction and management. By providing a clear and accessible representation of this data, we hope to contribute to the global conversation on sustainability and responsible consumption.</p>
+        </div>
+        <button id="enterButton" onclick="enterVisualization()">Enter Visualization</button>
+    </div>
+    <div id="sketch-container"></div> <!-- Container for p5.js sketch -->
+    <script>
+        function enterVisualization() {
+            // Hide the landing content
+            document.getElementById('content').style.display = 'none';
+
+            // Load the p5.js sketch dynamically
+            var script = document.createElement('script');
+            script.src = 'sketch.js';
+            script.onload = function() {
+                new p5();
+            };
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>
